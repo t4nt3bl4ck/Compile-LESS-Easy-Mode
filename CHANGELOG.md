@@ -3,9 +3,13 @@
 
 ---
 
+## V 1.0.2
+
+- Updated icon
+
 ## V 1.0.1
 
-- Updated Icon
+- Minor changes
 
 ## V 1.0.0
 
