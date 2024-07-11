@@ -1,0 +1,151 @@
+{
+  "name": "compile-less-easy-mode",
+  "displayName": "Compile LESS Easy Mode",
+  "description": "Easily compile lESS files to CSS on save",
+  "version": "1.0.0",
+  "publisher": "t4nt3bl4ck",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "pricing": "Free",
+  "activationEvents": [
+    "onLanguage:less"
+  ],
+  "main": "./out/compileLessEasyMode",
+  "contributes": {
+    "commands": [
+      {
+        "command": "compileLessEasyMode.compile",
+        "title": "Compile LESS Easy Mode: Compile"
+      }
+    ],
+    "configuration": {
+      "title": "Compile LESS Easy Mode",
+      "properties": {
+        "compileLessEasyMode.compile.compress": {
+          "type": "boolean",
+          "default": false,
+          "description": "Compress the compiled files.\nRemove unnecessary white-spaces from the compiled files.",
+          "order": 0
+        },
+        "compileLessEasyMode.compile.outputExtension": {
+          "type": "string",
+          "default": ".css",
+          "description": "The file extension to use for the compiled files.",
+          "order": 1
+        },
+        "compileLessEasyMode.compile.outputPath": {
+          "type": [
+            "string",
+            "boolean",
+            "null"
+          ],
+          "default": null,
+          "description": "The path to save the compiled files to. If null, the files will be generated inside the same base name as the .less file.\n\nIf 'sameBaseWithCssFolder' is set to true, the files are compiled in a 'css' folder inside the same base name as the .less file.\n'outputPath' MUST be true/undefined. \n\nIf 'keepFolderStructure' is set to true, the folder structure where the .less file is located, is kept the same for the compiled file.\n'outputPath' MUST be a path (string).",
+          "order": 2
+        },
+        "compileLessEasyMode.compile.sameBaseWithCssFolder": {
+          "type": "boolean",
+          "default": false,
+          "description": "Compile files into a 'css' folder within the same directory as the .less file.\nThis requires 'outputPath' to be set to 'null' or 'true' ('null' indicates the absence of the 'outputPath' property in settings.json).\nIf 'outputPath' is NOT 'null' or 'true', this setting will be ignored.",
+          "order": 3
+        },
+        "compileLessEasyMode.compile.keepFolderStructure": {
+          "type": "boolean",
+          "default": false,
+          "description": "Maintain the folder structure of the .less file for the compiled files.\nRequires 'outputPath' to be a valid path (string).\nIf 'outputPath' is NOT a string, this setting will be ignored.",
+          "order": 4
+        },
+        "compileLessEasyMode.compile.sourceMap": {
+          "type": "boolean",
+          "default": false,
+          "description": "Generate source maps for the compiled files.",
+          "order": 5
+        },
+        "compileLessEasyMode.compile.relativeUrls": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use relative urls for the compiled files.",
+          "order": 6
+        },
+        "compileLessEasyMode.compile.javascriptEnabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable inline javascript in the .less files.\nUsage: backticks (`).",
+          "order": 7
+        },
+        "compileLessEasyMode.compile.autoprefixer": {
+          "type": [
+            "string",
+            "array",
+            "null"
+          ],
+          "default": "> 5%, last 2 Chrome versions, not ie 6-9",
+          "description": "The 'browsers' argument for Autoprefixer plugin.\nSee https://github.com/ai/browserslist#queries.",
+          "order": 8
+        },
+        "compileLessEasyMode.compile.ie8Compatibility": {
+          "type": "boolean",
+          "default": true,
+          "description": "Restrict size of data-uri to 32KB for IE8 compatiblity.",
+          "order": 9
+        },
+        "compileLessEasyMode.compile.math": {
+          "type": "string",
+          "default": "parens-division",
+          "oneOf": [
+            "parens-division",
+            "parens",
+            "always",
+            "strict",
+            "strict-legacy"
+          ],
+          "enum": [
+            "parens-division",
+            "parens",
+            "always",
+            "strict",
+            "strict-legacy"
+          ],
+          "enumDescriptions": [
+            "No division is performed outside of parens using / operator",
+            "Parens required for all math expressions",
+            "Less does math eagerly",
+            "Parens required for all math expressions.",
+            "In some cases, math will not be evaluated if any part of the expression cannot be evaluated."
+          ],
+          "description": "The 'math' mode used by Less.\nSee http://lesscss.org/usage/#less-options-math).",
+          "order": 10
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/less": "^3.0.6",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.91.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.11.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "less": "^4.2.0",
+    "less-plugin-autoprefix": "^2.0.0",
+    "prettier": "^3.3.2"
+  }
+}
