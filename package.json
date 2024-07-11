@@ -1,9 +1,17 @@
 {
   "name": "compile-less-easy-mode",
   "displayName": "Compile LESS Easy Mode",
+  "icon": "icon.png",
   "description": "Easily compile lESS files to CSS on save",
   "version": "1.0.0",
   "publisher": "t4nt3bl4ck",
+  "author": {
+    "name": "t4nt3bl4ck"
+},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/t4nt3bl4ck/compile-less-easy-mode"
+  },
   "engines": {
     "vscode": "^1.91.0"
   },
