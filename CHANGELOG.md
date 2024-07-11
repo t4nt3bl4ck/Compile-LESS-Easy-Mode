@@ -1,9 +1,12 @@
 # Change Log
 
-All notable changes to the "compile-less-easy-mode" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+---
 
-## [Unreleased]
+## V 1.0.1
 
-- Initial release
+- Updated Icon
+
+## V 1.0.0
+
+- Initial Release

@@ -3,7 +3,7 @@
   "displayName": "Compile LESS Easy Mode",
   "icon": "icon.png",
   "description": "Easily compile lESS files to CSS on save",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "t4nt3bl4ck",
   "author": {
     "name": "t4nt3bl4ck"
